@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ******** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ******** -->
+    <title>Swap-o-meal</title>
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+
+    <main>
+      <section>
+        <div >
+          <div >
+              <nav >
+                <ol >
+                  <li ><a href="/">Home</a></li>
+                  <li ><span>Categories</span></li>
+                </ol>
+              </nav>
+          </div>
+          <article>
+    				<div>
+              <div >
+                <div >
+                  <span><b>Delicacy on Demand</b></span>
+                  <h1 class="categories"><a href="/subCategories?catalogCategory=Delicacy on Demand" >Search Delicacies</a></h1>
+                </div>
+              </div>
+              <div >
+                <div >
+                  <span ><b>Meal type</b></span>
+    					     <h1 class="categories"><a href="/subCategories?catalogCategory=Meal type" >Search Meal types</a></h1>
+                </div>
+              </div>
+    				</div>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <% include partials/site-navigation.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

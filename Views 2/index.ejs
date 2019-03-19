@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+
+    <title>Swap-o-meal</title>
+    <link href="/Resources/style.css" rel='stylesheet' type="text/css"/>
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <main>
+
+
+      <section>
+        <h3>Welcome to Swap-o-meal &#9851; <%= name %></h3>
+        <br>
+
+        <ul>
+          <% if(name === 'Anonymous') {%>
+            <li><p> <a class="" href="/register"> Sign-up</a> to enter.</p></li>
+          <%} else {%>
+          <%}%>
+        </ul>
+
+        <p>You need a new taste for your dyingly bored tastebuds? You have got this perfect platfrom where you can get to eat various food from around the world (Literally :p).</p>
+        
+        <p>Just select the meal you have, and then select a category of meal you want to eat, or a specific meal you know of. Add them to cart. And click SWAP. You're done!</p>
+        <br>
+        <img src="/Resources/images/food.jpeg" alt="delicacies" height="335" width="645">
+      </section>
+    </main>
+
+    <% include partials/site-navigation.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

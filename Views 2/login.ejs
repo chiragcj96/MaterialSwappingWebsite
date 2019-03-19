@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+
+    <title>Swap-o-meal</title>
+    <link href="/Resources/style.css" rel='stylesheet' type="text/css"/>
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <main>
+      <section>
+        
+        <h3>Welcome to Swap-o-meal &#9851;</h3>
+        <br>
+
+        <ul>
+          <% if(name === 'Anonymous') {%>
+            <li><p><a href="/sign-up">Sign-up</a></p></li>
+          <%} else {%>
+          <%}%>
+        </ul>
+
+        <form method="post" action="/login">
+          <div>
+            <div>
+              <% if(error === 'password') {%>
+                <label for="email"></label><h3>Email </h3><input type="text" name="username" placeholder="email" value="<%= username %>" id="email">
+              <%} else {%>
+                <label for="email"></label><h3>Email </h3><input type="text" name="username" placeholder="email" value="" id="email">
+              <%}%>
+            </div>
+
+          <div>
+            <label for="password"></label><h3>Password </h3><input type="password" name="password" placeholder="password" id="password">
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <input type="submit" name="signIn">
+          </div>
+          <% if(error === 'incorrect') {%>
+            <div >
+              <span> Username or password incorrect. Try again.</span>
+            </div>
+          <%} else if(error === 'incorrect-email') {%>
+            <div >
+              <span>Email incorrect. Try again.</span>
+            </div>
+          <%} else if(error === 'success') {%>
+            <div >
+              <span>Registered Successfully <%= firstName %>. Login!</span>
+            </div>
+          <%} else if(error === 'username') {%>
+            <div>
+              <span> Enter username </span>
+            </div>
+          <%} else if(error === 'password') {%>
+            <div>
+              <span> Enter password </span>
+            </div>
+          <%} else {%>
+            <div>
+              <h2>Create a new account <a class="" href="/register" >Register</a></h2>
+            </div>
+          <%}%>
+        </div>
+
+      </form>
+
+        <p>You need a new taste for your dyingly bored tastebuds? You have got this perfect platfrom where you can get to eat various food from around the world (Literally :p).</p>
+        <br>
+        <p>Just select the meal you have, and then select a category of meal you want to eat, or a specific meal you know of. Add them to cart. And click SWAP. You're done!</p>
+        <br>
+      </section>
+    </main>
+
+    <% include partials/site-navigation.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

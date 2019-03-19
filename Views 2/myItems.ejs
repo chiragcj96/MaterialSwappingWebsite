@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <title>Swap-o-meal</title>
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+
+    <main>
+      <section>
+
+        <div >
+          <div >
+            <nav>
+              <!-- <a href="/addItem"> Add Item </a> -->
+                <ol >
+                  <li><a href="/">Home</a></li>
+                  <li><span>My Catalog</span></li>
+                </ol>
+            </nav>
+          </div>
+          <% if(Object.keys(userItemList).length === 0) {%>
+            <!-- <h3> No items to display <a href="/addItem"> Add Item </a> </h3> -->
+
+          <%}else{%>
+          <article>
+            <h1> Chasrlotte's Meals for Swapping </h1>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>My Rating</th>
+                    <th>Swapped</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% Object.keys(userItemList).forEach((item, index) => { %>
+                      <tr>
+                      <td><a href="/item?itemCode=<%= userItemList[item].code %>"><%= userItemList[item].name %></a></td>
+                      <td><a href= "/subCategories?catalogCategory=<%= userItemList[item].category %>"><%= userItemList[item].category %></a></td>
+                      <td>
+                        <% for(var i = 0; i < userItemList[item].userRating; i++) {%>
+                          <i class="fas fa-star"></i>
+                        <%}%>
+                      </td>
+                      <% if(userItemList[item].status === 'available') {%>
+                        <td></td>
+                      <%}else if(userItemList[item].status === 'pending'){%>
+                      <td> <i class="fas fa-exchange-alt"></i></td>
+                      <%} else if(userItemList[item].status === 'swapped'){%>
+                        <td> <i class="fas fa-check"></i></td>
+                      <%}%>
+                      <td> <a class="a-disabled" href="/myItems/update/<%= userItemList[item].code %>"><button > Update </button></a>  </td>
+                      <td> <a class="a-disabled" href="/myItems/delete/<%= userItemList[item].code %>"><button > Delete </button></a>  </td>
+                      </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+              <div >
+                <p> Legend: <i class="fas fa-exchange-alt"></i> Swap offer available <i class="fas fa-check"> </i> already swapped</p>
+              </div>
+            </div>
+          </article>
+          <%}%>
+        </div>
+      </section>
+    </main>
+
+  <% include partials/site-navigation.ejs %>
+  <% include partials/footer.ejs %>
+
+  </body>
+</html>

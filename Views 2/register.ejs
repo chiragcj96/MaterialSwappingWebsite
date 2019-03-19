@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- //***** -->
+    <title>Swap-o-meal</title>
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+  </head>
+
+  <body>
+
+  <% include partials/header.ejs %>
+	<% include partials/user-navigation.ejs %>
+  <div>
+  	<% include partials/site-navigation.ejs %>
+  	<!-- Main Content Area -->
+  	<section>
+  		<div>
+  			<!--  Breadcrumb -->
+  			
+        <h1> Register yourself and start swapping your meals </h1>
+
+        <div>
+          <form method="POST" action="/register">
+            <div class="row">
+                  <div>
+                    <label for="firstName"></label><h3>First Name* </h3><input id="firstName" type="text" required name="firstName" placeholder="first name" value="<%= user.firstName %>">
+                  </div>
+                  <div>
+                    <label for="lastName"></label><h3>Last Name* </h3><input id="lastName" type="text" required name="lastName" placeholder="last name" value="<%= user.lastName %>">
+                  </div>
+                  <div>
+                    <label for="email"></label><h3>Email* </h3><input id="email" type="email" required name="email" placeholder="email" value="<%= user.email %>">
+                  </div>
+                  <div>
+                    <label for="password"></label><h3>Password* </h3><input id="password" type="password" required name="password" placeholder="password (AlphaNumeric only)" value="">
+                  </div>
+                  <div>
+                    <label for="confirmPassword"></label><h3>Confirm* </h3><input id="confirmPassword" type="password" required name="confirmPassword" placeholder="confirm password" value="">
+                  </div>
+
+
+                  <div>
+                    <label for="addressField1"></label><h3>Address Field 1* </h3><input id="addressField1" type="text" required name="addressField1" placeholder="Address Field 1" value="<%= user.addressField1%>">
+                  </div>
+                  <div>
+                    <label for="addressField2"></label><h3>Address Field 2* </h3><input id="addressField2" type="text" required name="addressField2" placeholder="Address Field 2" value="<%= user.addressField2%>">
+                  </div>
+                  <div>
+                    <label for="city"></label><h3>City* </h3><input id="city" type="text" required name="city" placeholder="city" value="<%= user.city%>">
+                  </div>
+                  <div>
+                    <label for="state"></label><h3>State* </h3><input id="state" type="text" required name="state" placeholder="state" value="<%= user.state%>">
+                  </div>
+                  <div>
+                    <label for="zip"></label><h3">Zip Code* </h3><input id="zip" type="text" required name="zip" placeholder="Zip Code" value="<%= user.zip%>">
+                  </div>
+                  <div>
+                    <label for="country"></label><h3>Country* </h3><input id="country" type="text" required name="country" placeholder="Country" value="<%= user.country%>">
+                  </div>
+
+
+            </div>
+            <div>
+                <input type="submit" name="register" value="Register">
+            </div>
+
+          </form>
+        </div>
+  		</div>
+  	</section>
+
+
+	<% include partials/footer.ejs %>
+
+  </body>
+</html>

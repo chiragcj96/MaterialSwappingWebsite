@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Swapping Auction</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+  </head>
+
+  <body>
+  	<% include partials/header.ejs %>
+	  <% include partials/user-navigation.ejs %>
+		<% include partials/site-navigation.ejs %>
+    <section >
+      <div >
+        <div>
+	          <nav>
+	             <ol>
+	                <li><a href="/">Home</a></li>
+	                <li><a href="/categories">Category</a></li>
+	                <li><span><%= catalogCategory %></span></li>
+	             </ol>
+	          </nav>
+        </div>
+        <article>
+					<div>
+						<h1 class="categories"> <%= catalogCategory %> </h1>
+						<ul class="cat-list">
+							<% Object.keys(items).forEach((item, index) => {
+							if(items[item]['category'] === catalogCategory){%>
+								<li><a href= "/item?itemCode=<%= items[item].code %>"> <%= items[item].name  %></a></li>
+							<% }}) %>
+						</ul>
+					</div>
+				</article>
+			</div>
+		</section>
+
+	<% include partials/footer.ejs %>
+
+  </body>
+</html>

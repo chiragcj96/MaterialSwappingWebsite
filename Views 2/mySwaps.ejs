@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+    <title>Swap-o-meal</title>
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+
+    <main>
+      <section>
+  			<div>
+  				<div>
+            <nav >
+  	           <ol >
+  	              <li ><a href="/">Home</a></li>
+  	              <li ><span >My Swaps</span></li>
+  	           </ol>
+  	        </nav>
+  	      </div>
+  				<article>
+  					<% if (swapping) { %>
+  						<h3> No Swaps pending <a href = "/categories">Swap Now </a></h3>
+  					<% } else { %>
+  						<h1> <%= name %> Swap Offers </h1>
+  						<div >
+  							<table>
+  								<thead >
+  									<tr>
+  										<th>Item</th>
+  										<th>Swap Offer</th>
+  										<th></th>
+  										<th></th>
+  									</tr>
+  								</thead>
+  								<tbody >
+  									<% Object.keys(swapList).forEach((item) =>{%>
+  										<tr>
+  											<td><a href="/item?itemCode=<%= swapList[item].code%>"><%= swapList[item].name %></a></td>
+  											<td><a href="/item?itemCode=<%= swapItemList[item].code%>"><%= swapItemList[item].name %></a></td>
+  											<% if(actionList[item] === "withdraw") {%>
+  											<td> <a href="/myItems/withdraw/<%= swapList[item].code%>"><button> Withdraw Swap </button></a> </td>
+  											<%} else {	%>
+  											<td> <a href="/myItems/accept/<%= swapList[item].code%>"><button> Accept </button></a> <a href="/myItems/reject/<%=  swapList[item].code%>"><button> Reject </button></a></td>
+  											<%}%>
+  										</tr>
+  									<%});%>
+  								</tbody>
+  							</table>
+  						</div>
+  						<% } %>
+  				</article>
+  			</div>
+  		</section>
+    </main>
+
+    <% include partials/site-navigation.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

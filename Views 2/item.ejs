@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>Swap-o-meal</title>
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+
+    <main>
+      <nav>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/subCategories?catalogCategory=<%= item.category %>"><%= item.category %></a></li>
+          <li><span><%= item.name %></span></li>
+        </ol>
+      </nav>
+
+      <h2><%= item.name %></h2>
+      <br>
+      <table>
+
+        <tr>
+          <td><img src=<%= item.image_url %> alt=<%= item.name %> height="230" width="300" class="myImage"/></td>
+          <td><br>Category: <b><%= item.category %></b><br>Rating: <b><%= item.rating %></b><br>Description: <i><%= item.description %></i></td>
+        </tr>
+      </table>
+
+      <% if(itemStatus === 'pending') {
+        if(swapIt === "yes") {%>
+          <h5> You have a swap offer request for this item</h5>
+					<a href= "/mySwaps"> <button> View offer </button></a>
+				<%} else {%>
+					<h5> You have already offered this item </h5>
+					<a href= "/mySwaps"><button href= "/mySwaps"> View offer </button></a>
+				<%}%>
+			<%} else if(itemStatus === 'swapped'){%>
+				<h5> You have already swapped this item </h5>
+			<%} else {%>
+				<%if(swapIt === "yes"){%>
+					<a href="/myItems/offer/<%= item.code%>"><button><span> Swap it</span></button></a>
+			<%}}%>
+
+
+<!-- Rating the item -->
+    <% if(sessionStatus === false) { %>
+      <a href="/login">
+        <button data-toggle="tooltip" title="Login to Rate">
+          <i></i>
+          <span> Rate it</span>
+        </button>
+      </a>
+    <% } else { %>
+        <form method = "POST" action="/confirmRating">
+          <input type = "hidden" value= "<%= item.code %>" name="itemCode">
+          <button title="1 star"  type="submit" name="rating" value="1" id="star1"><i class="fas fa-star fa-star-item"></i></button>
+          <button title="2 stars" type="submit" name="rating" value="2"><i class="fas fa-star fa-star-item"></i></button>
+          <button title="3 stars" type="submit" name="rating" value="3"><i class="fas fa-star fa-star-item"></i></button>
+          <button title="4 stars" type="submit" name="rating" value="4"><i class="fas fa-star fa-star-item"></i></button>
+          <button title="5 stars" type="submit" name="rating" value="5"><i class="fas fa-star fa-star-item"></i></button>
+        </form>
+    <% } %>
+
+    <div>
+      <%= item.description %>
+    </div>
+
+      <div><span> Category: </span>
+      	<a href = "/subCategories?catalogCategory=<%= item.category %>" > <%= item.category %> </a>
+      </div>
+
+<!-- //Rating of the item -->
+      <div><span> Average Rating: </span><%= item.rating %></div>
+
+
+      <br><button onclick="location.href='/item'" type="button" class="button">Back</button>
+      <br><br>
+    </main>
+
+    <% include partials/site-navigation.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+    <title>Swap-o-meal</title>
+    <link href='/Resources/style.css' rel='stylesheet' type="text/css" />
+  </head>
+
+  <body>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+
+    <main>
+      <section>
+        <div>
+          <div>
+            <nav>
+              <ol>
+                <li><a href="/">Home</a></li>
+                <li><span>Swap <%= item.category %></span></li>
+              </ol>
+            </nav>
+          </div>
+        <h2> Swap this item </h2>
+        <article>
+					<div> <span> Category: </span><%= item.category %></div>
+					<div> <span> Average Rating: </span><%= item.rating %></div>
+					<div>
+						<img src = <%= item.image_url %> alt = "item-image"/>
+					</div>
+					<div>
+						<div> <%= item.name %> </div>
+						<div> <span> <%= item.description %> </span></div>
+					</div>
+					<div>
+						<% if(flag === false) {%>
+							<h2> <%= message %> </h2>
+						<%} else {%>
+						<h3> Select from your available swaps </h3>
+						<div >
+							<form action = "/confirmswap" method = "POST">
+								<input type = "hidden" name="swapUserId" value="<%= item.userId %>">
+								<input type = "hidden" name="swapUserItemCode" value="<%= item.code %>">
+								<input type = "hidden" name="userId" value="<%= availableList[0].userId %>">
+								<ul>
+									<% Object.keys(availableList).forEach((item) => {%>
+										<li>
+											<input required type="radio" name ="userItemCode" value="<%= availableList[item].code %>"> <span class ="swap-options-item"><a href="/item?itemCode=<%= availableList[item].code %>"> <%= availableList[item].name %></a></span>
+										</li>
+									<%});%>
+								</ul>
+								<input type="submit" value="Confirm Swap">
+							</form>
+						</div>
+						<%}%>
+					</div>
+
+				</article>
+      </div>
+    </section>
+
+    </main>
+
+    <% include partials/site-navigation.ejs %>
+    <% include partials/footer.ejs %>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<nav>
+  <ul>
+    <% if(sessionStatus == true) {%>
+    <li class="TopNav"><a href="/signout">Sign Out</a></li>
+    <%} else {%>
+    <li class="TopNav"><a href="/login">Sign In</a></li>
+    <%}%>
+    <li class="TopNav"><a href="/myItems">My Meals</a></li>
+    <li class="TopNav"><a href="/mySwaps">My Swap</a></li>
+    <li class="TopNav"><a href="#">Cart</a></li>
+  </ul>
+</nav>

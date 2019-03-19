@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8">
+    <!-- ****** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- ****** -->
+
+    <title>Swap-o-meal</title>
+    <link href="/Resources/style.css" rel='stylesheet' type="text/css"/>
+  </head>
+
+  <body>
+
+  <% include partials/header.ejs %>
+	<% include partials/user-navigation.ejs %>
+  <section>
+    <nav>
+      <ol>
+        <li><span>Home</span></li>
+      </ol>
+    </nav>
+        <h1> Catalog entry: New Item </h1>
+
+        <div>
+          <form method="POST" action="/addItem" enctype="multipart/form-data">
+            <div>
+
+                  <label for="itemName"><h3>Item Name* </h3></label><input type="text" name="itemName" placeholder="item name">
+
+                  <label for="itemCategory"><h3>Item Category* </h3></label><input type="text" name="itemCategory" placeholder="item category">
+
+                  <label for="itemDescription"><h3>Item Description* </h3></label><input type="text" name="itemDescription" placeholder="item description">
+
+                  <label for="itemImage"><h3>Item Image* </h3></label><input type="file" name="itemImage" accept="image/*">
+
+            </div>
+
+                <input type="submit" name="addItem" value="Add Item">
+
+
+          </form>
+        </div>
+  	</section>
+  <% include partials/site-navigation.ejs %>
+	<% include partials/footer.ejs %>
+
+  </body>
+</html>
