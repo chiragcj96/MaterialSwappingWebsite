@@ -1,0 +1,164 @@
+@charset "UTF-8";
+article, aside, footer, header, main, nav, section {
+  display: block;
+}
+
+html, body, h1, h2, h3, ul, li, a, p, article, aside, header, footer, main, nav, section {
+  padding: 0;
+  margin: 0;
+}
+
+.banner{
+  background-color:black;
+  color: #85DE74;
+  padding: 10px 20px;
+  font-family: fantasy;
+}
+
+.myImage {
+  float: left;
+  padding-right: 30px;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+
+.TopNav {
+  display: inline;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: fantasy;
+  color: black;
+}
+
+table {
+  border: 2px solid grey;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-collapse: collapse;
+    border-spacing: 3px;
+}
+
+td, th {
+  border: 0px solid #CCC;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+body{
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #d4d4d4;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: black;
+}
+
+nav {
+  background-color: black;
+  padding: 5px;
+  margin-top: 1px;
+  font-family: fantasy;
+  color: white;
+}
+
+li a {
+  color: #85DE74;
+}
+
+li {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 20px;
+  font-variant: small-caps;
+  font-weight: bold;
+  list-style: none;
+}
+
+section {
+  border-color: black;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+article {
+  border-color: white;
+  margin-top: 5px;
+  padding: 10px 15px;
+}
+
+main {
+  width: 670px;
+  float: right;
+  margin-bottom: 10px;
+}
+
+aside {
+  background-color: #b0b0b0;
+  width: 180px;
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  color: orange;
+}
+
+footer {
+  clear: both;
+  background-color: black;
+  color: #85DE74;
+  padding: 5px 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 2px;
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: left;
+}
+
+.legend {
+  display: inline;
+  margin-left: 10px;
+}
+
+.signin {
+  float: right;
+  color: green;
+}
+
+.signOut {
+  position: absolute;
+  top : 35px;
+  right: 30px;
+  background-color: white;
+}
+
+.categories {
+	font-family: 'Lato';
+	margin-left: 20px;
+	margin-bottom: 0;
+	font-size: 2.2rem;
+}
+.cat-list {
+	margin: 10px 0 0 40px;
+	list-style-type: none;
+}
